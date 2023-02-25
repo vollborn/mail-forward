@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+    mail-forward:
+        image: vollborn/mail-forward
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        environment:
+            DEBUG: "${DEBUG:-false}"
+            IMAP_SERVER: "${IMAP_SERVER}"
+            IMAP_MAIL: "${IMAP_MAIL}"
+            IMAP_PASSWORD: "${IMAP_PASSWORD}"
+            SMTP_SERVER: "${SMTP_SERVER}"
+            SMTP_MAIL: "${SMTP_MAIL}"
+            SMTP_PASSWORD: "${SMTP_PASSWORD}"
+            FORWARD_TO: "${FORWARD_TO}"
